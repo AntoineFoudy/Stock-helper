@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 public class StockApp {
 
+
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
@@ -17,6 +18,7 @@ public class StockApp {
             switch (option1) {
                 // Price to Sales
                 case "1":
+                    // Gets users input
                     System.out.println("What is the market cap of the stock");
                     double marketCap = scanner.nextDouble();
 
@@ -24,22 +26,44 @@ public class StockApp {
                     double sales = scanner.nextDouble();
 
                     PS ps = new PS();
+                    // Setting all the values for my vars
                     ps.setMarketCap(marketCap);
                     ps.setSales(sales);
                     // Runs the calcluation and gets the answer
                     double priceToSales = ps.getPriceToSales();
                     System.out.println("The price to sales ratio is " + priceToSales);
 
-
-
                     break;
                 // Price to Operating Cash Flow
                 case "2":
+                    System.out.println("What is the market cap of the stock");
+                    marketCap = scanner.nextDouble();
+
+                    System.out.println("What is the TTM of Operating cash flow of the stock");
+                    double operatingCashFlow = scanner.nextDouble();
+
                     POCF pocf = new POCF();
+                    pocf.setMarketCap(marketCap);
+                    pocf.setOperatingCashFlow(operatingCashFlow);
+
+                    double priceToOperatingCashFlow;
+                    
                     break;
                 // Price to EBITDA
                 case "3":
+                    System.out.println("What is the market cap of the stock");
+                    marketCap = scanner.nextDouble();
+
+                    System.out.println("What is the TTM of EBITDA of the stock");
+                    double ebitda = scanner.nextDouble();
+
                     PEBITDA pebitda = new PEBITDA();
+                    pebitda.setMarketCap(marketCap);
+                    pebitda.setEbitda(ebitda);
+
+                    double priceToEbitda = pebitda.getPriceToEbitda();
+                    System.out.println("The price to EBITDA ratio is " + priceToEbitda);
+
                     break;
                 // Incase user inputs an invalid option
                 default:
